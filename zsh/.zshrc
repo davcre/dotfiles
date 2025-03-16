@@ -8,6 +8,8 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+ZSH_DISABLE_COMPFIX=true
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -78,26 +80,68 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  autoswitch_virtualenv
+  docker
+  git
+  virtualenv
+  web-search
+  extract
+  docker-compose
+  z
+  fzf
+  thefuck
+  colored-man-pages
+  command-not-found
+  aliases
+  alias-finder
+  ansible
+  aws
+  azure
+  brew
+  dotenv
+  pip
+  pipenv
+  pre-commit
+  python
+  rsync
+  terraform
+  vscode
+  gh
   git
   tmux
   zsh-autosuggestions
+  zsh-autocomplete
+  zsh-history-substring-search
   zsh-syntax-highlighting
 )
 
 ZSH_TMUX_AUTOSTART=true
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#8a8a8a'
 
 source $ZSH/oh-my-zsh.sh
-
-export TERM=xterm-256color
 
 # use nvim as standard editor
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
+alias python=python3
+alias nintendo=/opt/ryujinx/publish/Ryujinx
+alias vimdiff='nvim -d'
+
 # use nvim if available
 if [ -x "$(command -v nvim)" ]; then
     alias vim='nvim'
 fi
+
+HB_CNF_HANDLER="$(brew --repository)/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
+if [ -f "$HB_CNF_HANDLER" ]; then
+source "$HB_CNF_HANDLER";
+fi
+
+zstyle ':omz:plugins:alias-finder' autoload yes # disabled by default
+zstyle ':omz:plugins:alias-finder' longer yes # disabled by default
+zstyle ':omz:plugins:alias-finder' exact yes # disabled by default
+zstyle ':omz:plugins:alias-finder' cheaper yes # disabled by default
 
 # User configuration
 

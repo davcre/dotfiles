@@ -4,7 +4,6 @@ syntax on
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching 
 set ignorecase              " case insensitive 
-set mouse=v                 " middle-click paste with 
 set hlsearch                " highlight search 
 set incsearch               " incremental search
 set tabstop=2               " number of columns occupied by a tab 
@@ -28,11 +27,10 @@ set signcolumn=yes
 
 set backspace=indent,eol,start
 
-call plug#begin("~/.vim/plugged")
+call plug#begin()
 
 Plug 'shaunsingh/nord.nvim'
 Plug 'preservim/nerdtree'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'itchyny/lightline.vim'
@@ -50,25 +48,15 @@ colorscheme nord
 
 " nvim-treesitter
 lua << EOF
-require("nvim-treesitter.configs").setup({
-    ensure_installed = { "lua", "vim", "json", "help", "query", "c", "python" },
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = { "lua", "vim", "json", "help", "query", "c", "python", "yaml", "terraform", "toml", "bash" },
     sync_install = false,
     auto_install = true,
     highlight = {
         enable = true,
     },
-})
+}
 EOF
-
-" Use tab for trigger completion with characters ahead and navigate
-" NOTE: There's always complete item selected by default, you may want to enable
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config
-inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 " open new split panes to right and below
 set splitright

@@ -1,0 +1,46 @@
+[env]
+LC_ALL = "en_US.UTF-8"
+
+[general]
+import = ["~/.config/alacritty/themes/nord.toml"]
+
+[keyboard]
+bindings = [
+  { key = "F", mods = "Control", action = "SearchForward" },
+  { key = "Left", mods = "Alt", chars = "\u001BB" },
+  { key = "Return", mods = "Control|Shift", action = "SpawnNewInstance" },
+  { key = "Right", mods = "Alt", chars = "\u001BF" },
+  { key = "Space", mods = "Control", chars = "\u0000" },
+  { key = "V", mods = "Control|Shift", action = "Paste" },
+]
+
+[window]
+dimensions = { columns = 125, lines = 35 }
+opacity = 0.8
+
+padding.x = 10
+padding.y = 10
+
+decorations = "Full"
+decorations_theme_variant = "Dark"
+blur = true
+
+dynamic_title = false
+
+[font]
+normal.family = "Hack Nerd Font Mono"
+bold.family = "Hack Nerd Font Mono"
+italic.family = "Hack Nerd Font Mono"
+bold_italic.family = "Hack Nerd Font Mono"
+
+size = 15.0
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[mouse]
+hide_when_typing = true
+
+[selection]
+save_to_clipboard = true

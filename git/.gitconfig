@@ -1,0 +1,35 @@
+[gpg]
+  program = gpg
+	format = ssh
+
+[commit]
+   gpgsign = true
+   verbose = true
+
+[pull]
+    ff = only
+
+[push]
+    autoSetupRemote = true
+
+[init]
+    defaultBranch = main
+
+[merge]
+    conflictStyle = zdiff3
+    ff = false
+
+#[rebase]
+#    autosquash = true
+
+[core]
+    pages = delta
+
+[diff]
+    algorithm = histogram
+
+[filter "lfs"]
+	  clean = git-lfs clean -- %f
+	  smudge = git-lfs smudge -- %f
+	  process = git-lfs filter-process
+	  required = true
