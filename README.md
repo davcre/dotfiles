@@ -2,15 +2,19 @@
 
 ## Nvim
 - Install vim-plug 
-```sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'```
+```
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+```
 - Add init.nvim to .config/nvim
 - Run :PlugInstall inside nvim to install the plugins
 - Run :PlugUpdate inside nvim to update plugins
 
 ## Tmux
 - Install Tmux Plugin Manager (TPM)
-```git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm```
+```
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
 - Add .tmux.conf to your home directory
 - Reload Tmux with ```prefix + r```
 - Install plugins with ```prefix + I```
